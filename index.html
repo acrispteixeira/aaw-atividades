@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+      <html>
+        <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        </head>
+        <body>
+            <div id="app">
+                <div v-html="message"></div>
+                <img v-bind:src="imageSource">
+                <p></p>
+                <!-- <div v-if="isVisible">Now you see me</div> -->
+                <!-- <div v-if="isVisible">
+                    Now you see me
+                </div>
+                <div v-else>
+                    Now you don't
+                </div> -->
+                <div v-if="isVisible">
+                    Now you see me
+                </div>
+                <div v-else-if="otherVisible">
+                    You might see me
+                </div>
+                <div v-else>
+                    Now you don't
+                </div>
+
+                <ul>
+                    <!-- <li v-for="person in people">
+                        {{ person }}
+                    </li> -->
+                    <!-- <template v-for="person in people">
+                        <li>
+                            {{ person }}
+                        </li>
+                    </template> -->
+                    <!-- <li v-for="person in people">
+                        {{ person.name }}
+                    </li> -->
+                    <table>
+                        <tr v-for="person in people">
+                            <td>{{ person.name }}</td>
+                            <td>{{ person.email }}</td>
+                            <td>{{ person.balance }}</td>
+                            <td>{{ person.registered }}</td>
+                            <!-- <td>{{ (person.isActive) ? 'Active' : 'Inactive' }}</td> -->
+                            <td>
+                                    <span class="positive" v-if="person.isActive">Active</span>
+                                    <span class="negative" v-else>Inactive</span>
+                                  </td>
+                        </tr>
+                        
+                    </table>
+                </ul>
+
+            </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script type="text/javascript">
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    message: '<h1>Hello!</h1>',
+                    imageSource: 'http://via.placeholder.com/350x150',
+                    isVisible: false,
+                    otherVisible: true,
+                    people: [
+                        {
+                            name:'Charla McDougall',
+                            email:'cmcdougall0@geocities.jp',
+                            balance:1839.18,
+                            registered:false
+                        },
+                        {
+                            name:'Querida Inkles',
+                            email:'qinkles1@sogou.com',
+                            balance:3367.56,
+                            registered:true
+                        },
+                        {
+                            name:'Colman Tatchell',
+                            email:'ctatchell2@sun.com',
+                            balance:2681.36,
+                            registered:false
+                        },
+                        // {"name":"Marysa Roubert","email":"mroubert3@mail.ru","balance":2372.74,"registered ":true},
+                        // {"name":"Jacquelyn Briskey","email":"jbriskey4@jalbum.net","balance":2757.05,"registered ":true}
+                        ]
+                },
+
+            });
+            
+          </script>
+        </body>
+      </html>
